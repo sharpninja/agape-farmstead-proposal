@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+
+  --color-forest: #2f3a22;
+  --color-canopy: #3a4628;
+  --color-olive: #5f7334;
+  --color-sprout: #d7e4a8;
+  --color-cream: #f7f1e5;
+  --color-paper: #efe6d6;
+  --color-ink: #2a241c;
+  --color-muted: #6b6154;
+  --color-copper: #8a5a2b;
+
+  --radius-card: 1rem;
+}
+
+@layer base {
+  html {
+    background: var(--color-cream);
+    color: var(--color-ink);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-cream);
+    color: var(--color-ink);
+    min-height: 100dvh;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-olive);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--color-olive);
+    color: var(--color-cream);
+  }
+}
+
+@keyframes slide-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.slide-enter {
+  animation: slide-rise 280ms ease-out both;
+}
+
+.deck-root,
+.deck-root * {
+  touch-action: pan-y;
+}
+
+.deck-root {
+  overscroll-behavior-x: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-enter {
+    animation: none;
+  }
+}
