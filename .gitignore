@@ -6,7 +6,6 @@ screenshots
 artifacts
 dist
 .output
-gh-pages
 .env
 .env.*
 *.log

@@ -26,7 +26,7 @@ if (!shell || !statSync(shell).isFile()) {
   process.exit(1);
 }
 
-const out = "gh-pages";
+const out = "docs";
 rmSync(out, { recursive: true, force: true });
 cpSync(root, out, { recursive: true });
 cpSync(shell, join(out, "index.html"));
